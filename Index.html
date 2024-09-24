@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Уже не Сумма чисел</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var arr = new Array();
+		function Summa() {
+
+			var Numbers = document.forms["frm"].elements["Numbers"].value;
+			var Splited1 = Numbers.split('');
+			for (var i = 0; i <= Numbers; i++) {
+				var Powed = Math.pow(i, 2).toString();
+				var Splited2 = Powed.split('');
+
+				Splited2 = Splited2.slice(-Splited1.length);
+//Делать через доп функции
+
+				for (var i = 0; i < Splited2.length; i++) {
+								if (Splited1[i] == Splited2[i]){
+					arr.push(i);
+					alert("Массив: " + arr)
+					}
+					else{
+						alert("Число " + Numbers + " неподходит")
+						alert("Массив такой:" + arr )
+					}
+				}
+			}
+
+		}
+	</script>
+<form id="frm">
+	<input type="text" id="Numbers" placeholder="Число">
+	<input type="submit" onclick="Summa()">
+</form>
+</body>
+</html>
