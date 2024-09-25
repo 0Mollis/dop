@@ -6,20 +6,25 @@
 <body>
 	<script type="text/javascript">
 		function Summa() {
-			var Numbers = document.forms["frm"].elements["Numbers"].value;//получаю диапазон
-			var arr = new Array();//создаю массив
-
-			for(var i = 1; i <= Numbers; i++){//в цикле для каждого числа i из диапазона 
-				var Splitln = i.toString().split('');//превращаю число i в массив			
-				var Powed = Math.pow(i, 2).toString();//возвожу i в степень
-				var Split = Powed.split('');//сплитую i возведённое в степень
-				var forCheck = Split.slice(-Splitln.length).join("");//превращаю в строку возведённую в степень i
-				if (i == forCheck) {// проверяю число i из диапазона с числом возведённое в степень
-					arr.push(i);//добавляю в конец массива
+			var Numbers = document.forms["frm"].elements["Numbers"].value;
+			var arr = new Array();
+			function Cikle(max) {
+				for(var i = 1; i <= max; i++){
+					if (Check(i)) {arr.push(i)}
 				}
+				alert('Получился массив: ' + arr)
 			}
 
-			alert('Получился массив: ' + arr)//вывожу
+			function Check(num) {
+				if (num == 1) {return num;}
+				else{
+					for (var i = 2; i < num; i++) {
+						if (num % i == 0) {return false;}
+					}
+					return num;
+				}	
+			}
+			Cikle(Numbers);
 		}
 	</script>
 <form id="frm">
