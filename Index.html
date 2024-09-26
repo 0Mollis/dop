@@ -7,24 +7,24 @@
 	<script type="text/javascript">
 		function Summa() {
 			var Numbers = document.forms["frm"].elements["Numbers"].value;
-			var arr = new Array();
-			function Cikle(max) {
-				for(var i = 1; i <= max; i++){
-					if (Check(i)) {arr.push(i)}
-				}
-				alert('Получился массив: ' + arr)
-			}
-
-			function Check(num) {
-				if (num == 1) {return num;}
-				else{
-					for (var i = 2; i < num; i++) {
-						if (num % i == 0) {return false;}
+			var array = Numbers.split(" ");
+			for (var i = 0; i < array.length-1; i++) {
+				var min = array[i];
+				var buffer = 0;
+				var ch = false;
+				for (var j = i; j < array.length; j++) {
+					if (array[j] < min) {
+						min = array[j];
+						ch = true;
 					}
-					return num;
+				}
+				if (ch) {
+					buffer = array.lastIndexOf(min);
+					array[buffer] = array[i]; 
+					array[i] = min;
 				}	
 			}
-			Cikle(Numbers);
+			alert(array);	
 		}
 	</script>
 <form id="frm">
