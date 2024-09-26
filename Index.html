@@ -8,12 +8,13 @@
 		function Summa() {
 			var Numbers = document.forms["frm"].elements["Numbers"].value;
 			var array = Numbers.split(" ");
+			Number(...array)
 			for (var i = 0; i < array.length-1; i++) {
-				var min = array[i];
+				var min = Math.min(...array);
 				var buffer = 0;
 				var ch = false;
 				for (var j = i; j < array.length; j++) {
-					if (array[j] < min) {
+					if (array[j] > min) {
 						min = array[j];
 						ch = true;
 					}
